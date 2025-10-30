@@ -1,0 +1,45 @@
+dependencies:
+  espressif/usb_host_cdc_acm:
+    component_hash: 0ca1a47f3b568ad539f2db7938aaa2a64f3017bd50a5ee9b410d2f9d7425ecef
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.4'
+    - name: espressif/usb
+      registry_url: https://components.espressif.com
+      require: public
+      rules:
+      - if: idf_version >=6.0
+      - if: target not in ["linux"]
+      version: ^1.0.0
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    targets:
+    - esp32s2
+    - esp32s3
+    - esp32p4
+    - esp32h4
+    - linux
+    version: 2.1.1
+  idf:
+    source:
+      type: idf
+    version: 5.5.1
+  masuidrive/nimble-nordic-uart:
+    component_hash: 80659307952a9ff6d8e539fe3e39aa10217247b366a3b158dca0e2cf488e8bc0
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.0.3
+direct_dependencies:
+- espressif/usb_host_cdc_acm
+- idf
+- masuidrive/nimble-nordic-uart
+manifest_hash: 3c93205f9d562556e2fd25a1d674b2627d15da2af28ce01e134e0dff58a78a2a
+target: esp32s3
+version: 2.0.0
